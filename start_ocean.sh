@@ -56,7 +56,7 @@ else
 fi
 export NETWORK_RPC_PORT="8545"
 # export NETWORK_RPC_URL="http://"${NETWORK_RPC_HOST}:${NETWORK_RPC_PORT}
-export NETWORK_RPC_URL="https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"
+export NETWORK_RPC_URL="https://rinkeby.infura.io/v3/c93bc666c87a4c71b18eb76d79201a3c"
 # Use this seed on ganache to always create the same wallets
 # export GANACHE_MNEMONIC=${GANACHE_MNEMONIC:-"taxi music thumb unique chat sand crew more leg another off lamp"}
 

@@ -26,7 +26,7 @@ services:
       ADDRESS_FILE: "/ocean-contracts/artifacts/address.json"
       DEPLOY_CONTRACTS: "false"
       NETWORK_NAME: ${CONTRACTS_NETWORK_NAME}
-      EVENTS_RPC: "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"
+      EVENTS_RPC: "https://rinkeby.infura.io/v3/c93bc666c87a4c71b18eb76d79201a3c"
       EVENTS_ALLOW: "0"
       RUN_EVENTS_MONITOR: "1"
     volumes:
