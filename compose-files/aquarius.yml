@@ -9,7 +9,6 @@ services:
         ipv4_address: 172.15.0.5
     depends_on:
       - elasticsearch
-      - ocean-contracts
     environment:
       DB_MODULE: ${DB_MODULE}
       DB_HOSTNAME: ${DB_HOSTNAME}
