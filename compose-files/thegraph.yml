@@ -45,7 +45,6 @@ services:
       DEPLOY_SUBGRAPH: ${DEPLOY_SUBGRAPH}
     depends_on:
       - graph-node
-      - ocean-contracts
     volumes:
       - ${OCEAN_ARTIFACTS_FOLDER}:/ocean-contracts/artifacts/
 volumes:
