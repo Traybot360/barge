@@ -55,14 +55,15 @@ else
     export NETWORK_RPC_HOST=${IP}
 fi
 export NETWORK_RPC_PORT="8545"
-export NETWORK_RPC_URL="http://"${NETWORK_RPC_HOST}:${NETWORK_RPC_PORT}
+# export NETWORK_RPC_URL="http://"${NETWORK_RPC_HOST}:${NETWORK_RPC_PORT}
+export NETWORK_RPC_URL="https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"
 # Use this seed on ganache to always create the same wallets
-export GANACHE_MNEMONIC=${GANACHE_MNEMONIC:-"taxi music thumb unique chat sand crew more leg another off lamp"}
+# export GANACHE_MNEMONIC=${GANACHE_MNEMONIC:-"taxi music thumb unique chat sand crew more leg another off lamp"}
 
 # Ocean contracts
 export OCEAN_HOME="${HOME}/.ocean"
 export CONTRACTS_OWNER_ROLE_ADDRESS="${CONTRACTS_OWNER_ROLE_ADDRESS}"
-export DEPLOY_CONTRACTS=true
+export DEPLOY_CONTRACTS=false
 export DEPLOY_SUBGRAPH=true
 export OCEAN_ARTIFACTS_FOLDER="${OCEAN_HOME}/ocean-contracts/artifacts"
 mkdir -p ${OCEAN_ARTIFACTS_FOLDER}
@@ -77,7 +78,7 @@ mkdir -p ${OCEAN_CERTS_FOLDER}
 # copy certs
 cp -r ./certs/* ${OCEAN_CERTS_FOLDER}
 # Specify which ethereum client to run or connect to: development
-export CONTRACTS_NETWORK_NAME="development"
+export CONTRACTS_NETWORK_NAME="rinkeby"
 
 # Default Aquarius parameters: use Elasticsearch
 export DB_MODULE="elasticsearch"
@@ -98,8 +99,11 @@ export IPFS_HTTP_GATEWAY=http://172.15.0.16:8080/ipfs/
 export PROVIDER_LOG_LEVEL=${PROVIDER_LOG_LEVEL:-INFO}
 export PROVIDER_WORKERS=10
 export PROVIDER_IPFS_GATEWAY=https://ipfs.oceanprotocol.com
-export PROVIDER_PRIVATE_KEY=0xfd5c1ccea015b6d663618850824154a3b3fb2882c46cefb05b9a93fea8c3d215
-export PROVIDER2_PRIVATE_KEY=0xc852b55146fd168ec3d392bbd70988c18463efa460a395dede376453aca1180e
+export PROVIDER_PRIVATE_KEY=${PK1:-""}
+export PROVIDER2_PRIVATE_KEY=${PK2:-""}
+
+echo "PROVIDER_PRIVATE_KEY=${PROVIDER_PRIVATE_KEY}"
+echo "PROVIDER2_PRIVATE_KEY=${PROVIDER2_PRIVATE_KEY}"
 
 if [ ${IP} = "localhost" ]; then
     export AQUARIUS_URI=http://172.15.0.5:5000
@@ -182,8 +186,8 @@ COMPOSE_FILES+=" -f ${COMPOSE_DIR}/elasticsearch.yml"
 COMPOSE_FILES+=" -f ${COMPOSE_DIR}/ipfs.yml"
 COMPOSE_FILES+=" -f ${COMPOSE_DIR}/provider.yml"
 COMPOSE_FILES+=" -f ${COMPOSE_DIR}/redis.yml"
-COMPOSE_FILES+=" -f ${COMPOSE_DIR}/ganache.yml"
-COMPOSE_FILES+=" -f ${COMPOSE_DIR}/ocean_contracts.yml"
+# COMPOSE_FILES+=" -f ${COMPOSE_DIR}/ganache.yml"
+# COMPOSE_FILES+=" -f ${COMPOSE_DIR}/ocean_contracts.yml"
 
 DOCKER_COMPOSE_EXTRA_OPTS="${DOCKER_COMPOSE_EXTRA_OPTS:-}"
 
